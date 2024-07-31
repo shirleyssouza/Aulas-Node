@@ -1,0 +1,16 @@
+npm init -y (inicia um novo projeto backend)
+
+adicionar no arquivo json, abaixo de main, type: "module"
+
+npm install express (framework com todas as dependencias para utilização da aplicação)
+
+npm install dotenv (cria uma camada de segurança, cria um arquivo para as chaves de acesso)
+
+npm install mysql2 sequelize (para se conectar com mysql e sequelize é para facilitar a criação de tabelas)
+
+ciar arquivo .env (arquivo onde vai ser criado variaveis para salvar informações secretas)
+
+Depois de fazer toda a programação de registro, chamar node index.js no terminal para testar a conexão.
+
+npm install -D nodemon Faz a aplicação rodar sem precisar reiniciar toda vez
+rodar nodemon ./index.js (ou criar um scrip e roda npm run "script")
