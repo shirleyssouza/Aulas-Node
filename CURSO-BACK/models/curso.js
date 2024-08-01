@@ -18,8 +18,8 @@ export const Curso = connection.define("curso", {
     },
 });
 
-Curso.hasOne(Professor);
+Curso.hasOne(Professor, { onDelete: "CASCADE" });
 Professor.belongsTo(Curso);
 
-Curso.hasMany(Aluno);
+Curso.hasMany(Aluno, { onDelete: "CASCADE" });
 Aluno.belongsTo(Curso);

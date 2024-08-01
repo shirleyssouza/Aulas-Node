@@ -1,8 +1,7 @@
 import { connection, authenticate } from "./config/database.js";
-import { Cliente } from "./models/cliente.js";
-import { Endereco } from "./models/endereco.js";
-import { Pet } from "./models/pet.js";
 import express from "express";
+import { clientesRouter } from "./routes/clientes.js";
+import { petsRouter } from "./routes/pets.js";
 
 authenticate(connection).then(() => {
     // Após conectar no banco de dados, ele irá sincronizar os models no banco, ou seja, irá gerar as tabelas caso necessário.
@@ -17,11 +16,12 @@ authenticate(connection).then(() => {
 // Recursos pré configurados
 const app = express();
 
-// Definir os endpoints do backend
-// Metodos: GET (leitura), POST (inserção), PUT (alteração), DELETE (remoção)
-app.get("/hello", (req, res) => {
-    res.send("Hello World and Shirley! Again!");
-});
+// Garantir que todas as requisições que tem body sejam lidas como JSON
+app.use(express.json());
+
+//Definir os endereços do backend
+app.use(clientesRouter);
+app.use(petsRouter);
 
 // Rodar a aplicação backend
 app.listen(3000, () => {
