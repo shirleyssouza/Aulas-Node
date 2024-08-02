@@ -4,12 +4,12 @@ import { Professor } from "../models/professor.js";
 
 export const cursoRouter = Router();
 
-cursoRouter.get("/cursos", async (req, res) => {
+cursoRouter.get("/consultar", async (req, res) => {
     const listaCursos = await Curso.findAll();
     res.json({ listaCursos });
 });
 
-cursoRouter.get("/cursos/:id", async (req, res) => {
+cursoRouter.get("/consultar/:id", async (req, res) => {
     const curso = await Curso.findOne({
         where: { id: req.params.id },
         include: [Professor],
@@ -21,7 +21,7 @@ cursoRouter.get("/cursos/:id", async (req, res) => {
     }
 });
 
-cursoRouter.post("/cursos", async (req, res) => {
+cursoRouter.post("/registrar", async (req, res) => {
     const { nome, turno, dataInicio, professor } = req.body;
     try {
         await Curso.create(
@@ -34,7 +34,7 @@ cursoRouter.post("/cursos", async (req, res) => {
     }
 });
 
-cursoRouter.put("/cursos/:id", async (req, res) => {
+cursoRouter.put("/editar/:id", async (req, res) => {
     const idCursos = req.params.id;
     const { nome, turno, dataInicio, professor } = req.body;
 
@@ -53,7 +53,7 @@ cursoRouter.put("/cursos/:id", async (req, res) => {
     }
 });
 
-cursoRouter.delete("/cursos/:id", async (req, res) => {
+cursoRouter.delete("/remover/:id", async (req, res) => {
     const idCurso = req.params.id;
     try {
         const curso = await Curso.findOne({ where: { id: idCurso } });
