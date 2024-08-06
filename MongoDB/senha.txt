@@ -1,0 +1,18 @@
+login com o ssouza.shirley@hotmail.com
+
+senha database
+user: root
+senha: hmvRYaG5r4wpUuj1
+
+url para se conectar ao database
+mongodb+srv://root:hmvRYaG5r4wpUuj1@cluster0.pvansid.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
+
+criar pasta para o projeto e:
+npm init -y
+npm install express dotenv mongoose joi
+npm install -D nodemon
+
+no arquivo package.json:
+colocar "type": module, abaixo de main.
+
+colocar "dev": "nodemon ./index.js" em script para criar o atalho npm run dev
